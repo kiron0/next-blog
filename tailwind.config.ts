@@ -13,6 +13,12 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        pink: "rgba(238, 174, 202, 1) 0%",
+        blue: "rgba(148, 187, 233, 1) 100%",
+        violet: "#cf9aff",
+        blue2: "#95c0ff",
+      },
     },
   },
   daisyui: {

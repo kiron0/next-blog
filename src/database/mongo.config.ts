@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import colors from "colors";
 
 export function connect() {
           mongoose
@@ -6,6 +7,6 @@ export function connect() {
                               tls: true,
                               ssl: true,
                     })
-                    .then(() => console.log("Database connected successfully"))
-                    .catch((err) => console.log("The DB error is", err));
+                    .then(() => console.log(colors.green("Hey Buddy! DB is connected.")))
+                    .catch((err) => console.log(colors.red(err)));
 }

@@ -1,16 +1,14 @@
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import { authOptions } from "./api/auth/[...nextauth]/options";
 import HomePage from "@/components/HomePage";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/options";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
-  if (!session) {
-    redirect("/login");
-  }
+  const user = session?.user;
+
   return (
     <main>
-      <HomePage session={session} />
+      <HomePage user={user} />
     </main>
   );
 }

@@ -1,6 +1,5 @@
 import GoogleProvider from "next-auth/providers/google";
 import { AuthOptions } from "next-auth";
-import axios from "axios";
 import { connect } from "@/database/mongo.config";
 import User from "@/models/User";
 
@@ -18,6 +17,7 @@ export const authOptions: AuthOptions = {
 
           if (!userExist) {
             const res = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/user`, {
+              cache: "no-cache",
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -46,5 +46,5 @@ export const authOptions: AuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
-  // secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 };
